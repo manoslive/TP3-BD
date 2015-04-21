@@ -37,7 +37,7 @@ public class LivresPopulaires {
 				}
 			}
 		});
-	}
+	}/*qqpart*/
 
 	/**
 	 * Create the application.
