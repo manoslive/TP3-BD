@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PkgEmployesClg.Menu">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="1abc8" class="javax.swing.JButton" binding="BTN_ActionAdherent">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ajouter, Modifier, Supprimer un adhérent"/>
+        </properties>
+      </component>
+      <component id="10d4b" class="javax.swing.JButton" binding="AjouterPret">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ajouter un prêt"/>
+        </properties>
+      </component>
+      <component id="1cdd6" class="javax.swing.JButton" binding="BTN_ConsulterLivres">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Consulter la liste des livres par genre"/>
+        </properties>
+      </component>
+      <component id="74f0c" class="javax.swing.JButton" binding="ConsulterLivresPrets">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Consulter la liste des livres en cours de prêts"/>
+        </properties>
+      </component>
+      <component id="1062b" class="javax.swing.JButton" binding="BTN_RechercheLivre">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Recherche d'un livre par auteur ou par titre"/>
+        </properties>
+      </component>
+      <component id="1948a" class="javax.swing.JButton" binding="BTN_LivrePlusEmpruntes">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Liste des livres les plus empruntés"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
