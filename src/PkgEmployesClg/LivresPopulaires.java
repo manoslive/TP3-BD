@@ -19,7 +19,7 @@ import javax.swing.JTextPane;
 import javax.swing.JList;
 import java.awt.Font;
 
-public class test {
+public class LivresPopulaires {
 
 	private JFrame frame;
 
@@ -55,13 +55,17 @@ public class test {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(67, 49, 506, 336);
-		frame.getContentPane().add(list);
+		JList LV_LivresPopulaires = new JList();
+		LV_LivresPopulaires.setBounds(67, 49, 506, 301);
+		frame.getContentPane().add(LV_LivresPopulaires);
 		
-		JLabel lblLesLivresLes = new JLabel("Les livres les plus emprunt\u00E9s");
-		lblLesLivresLes.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblLesLivresLes.setBounds(184, 16, 287, 31);
-		frame.getContentPane().add(lblLesLivresLes);
+		JLabel LB_LivresPopulaires_1 = new JLabel("Les livres les plus emprunt\u00E9s");
+		LB_LivresPopulaires_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		LB_LivresPopulaires_1.setBounds(184, 16, 287, 31);
+		frame.getContentPane().add(LB_LivresPopulaires_1);
+		
+		JButton BTN_Retour = new JButton("Retour");
+		BTN_Retour.setBounds(458, 368, 115, 29);
+		frame.getContentPane().add(BTN_Retour);
 	}
 }
