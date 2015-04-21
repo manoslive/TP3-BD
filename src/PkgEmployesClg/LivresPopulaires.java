@@ -4,18 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.JButton;
-import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import net.miginfocom.swing.MigLayout;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
-import javax.swing.JSplitPane;
-import javax.swing.JScrollPane;
-import java.awt.CardLayout;
-import javax.swing.JTextPane;
 import javax.swing.JList;
 import java.awt.Font;
 

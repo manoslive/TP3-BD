@@ -1,10 +1,11 @@
 package PkgEmployesClg;
+
 import java.sql.*;
-import oracle.jdbc.pool.*;
+//import oracle.jdbc.pool.*;
 /**
  * Created by shaun on 2015-04-21.
  */
-public class ConnectionOracle {
+/*public class ConnectionOracle {
     private String nomUsager;
     private String motdePasse;
     String url="jdbc:oracle:thin:@205.237.244.251:1521:orcl";
@@ -53,4 +54,4 @@ public class ConnectionOracle {
             conn = null;
         }
     }
-}
+}*/
