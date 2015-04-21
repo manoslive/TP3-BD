@@ -1,6 +1,7 @@
 package PkgEmployesClg;
 import javax.swing.*;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -13,4 +14,17 @@ public class Menu {
     private JButton ConsulterLivresPrets;
     private JButton BTN_RechercheLivre;
     private JButton BTN_LivrePlusEmpruntes;
+
+    public Menu() {
+        BTN_ActionAdherent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ActionAdherent();
+            }
+        });
+    }
+    public static void main()
+    {
+
+    }
 }
