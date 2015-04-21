@@ -24,14 +24,16 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                //frame.setContentPane(new ActionAdherent().panel1);
-                //frame.getContentPane().add(new ActionAdherent());
-
+            }
+        });
+        AjouterPret.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         JFrame frame = new JFrame("ActionAdherent");
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        frame.add(new ActionAdherent().panel1);
+                        frame.add(new AjoutPret().panel1);
                         frame.pack();
                         frame.setVisible(true);
                         frame.setSize(700,300);
