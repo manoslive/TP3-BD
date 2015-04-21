@@ -30,7 +30,7 @@ public class LivresPopulaires {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					test window = new test();
+					LivresPopulaires window = new LivresPopulaires();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class LivresPopulaires {
 	/**
 	 * Create the application.
 	 */
-	public test() {
+	public LivresPopulaires() {
 		initialize();
 	}
 
