@@ -40,7 +40,7 @@ public class Menu {
                 frame.add(new ConsulterLivresParGenre(connection).panel1);
                 frame.pack();
                 frame.setVisible(true);
-                frame.setSize(700,300);
+                frame.setSize(800,300);
             }
         });
         BTN_AjouterPret.addActionListener(new ActionListener() {

@@ -28,7 +28,7 @@ public class ModAdherent {
     private JFrame frame;
     Connection maConnection;
     Connection connection;
-    ResultSet rest;
+    ResultSet rset;
     public ModAdherent(Connection conn) {
         connection = conn;
         //maConnection = conn.getConnection();
@@ -37,8 +37,8 @@ public class ModAdherent {
             stm.registerOutParameter(1, OracleTypes.CURSOR);
             stm.execute(); //execution de la fonction
             // Caster le paramètre de retour en ResultSet
-            rest = (ResultSet) stm.getObject(1);
-            rest.next();
+            rset = (ResultSet) stm.getObject(1);
+            rset.next();
             AfficherAdherent();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -48,7 +48,7 @@ public class ModAdherent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (rest.previous())
+                    if (rset.previous())
                         AfficherAdherent();// affichage des résultat
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
@@ -59,7 +59,7 @@ public class ModAdherent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (rest.next())
+                    if (rset.next())
                         AfficherAdherent();// affichage des résultat
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
@@ -106,7 +106,7 @@ public class ModAdherent {
                     CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.SUPPRIMERADHERENT(?)}");
                     stm.setString(1, TB_NumAderent.getText());
                     stm.execute(); //execution de la fonction
-                    rest.beforeFirst();;
+                    rset.beforeFirst();;
                     AfficherAdherent();
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
@@ -117,11 +117,11 @@ public class ModAdherent {
     public void AfficherAdherent()
     {
         try{
-            TB_NumAderent.setText(Long.toString(rest.getLong(1)));
-            TB_Nom.setText(rest.getString(2));
-            TB_Prenom.setText(rest.getString(3));
-            TB_Adresse.setText(rest.getString(4));
-            TB_NumTel.setText(rest.getString(5));
+            TB_NumAderent.setText(Long.toString(rset.getLong(1)));
+            TB_Nom.setText(rset.getString(2));
+            TB_Prenom.setText(rset.getString(3));
+            TB_Adresse.setText(rset.getString(4));
+            TB_NumTel.setText(rset.getString(5));
         }
         catch(SQLException ex)
         {
