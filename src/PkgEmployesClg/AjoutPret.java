@@ -1,9 +1,13 @@
 package PkgEmployesClg;
 
+import oracle.sql.DATE;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by shaun on 2015-04-21.
@@ -20,26 +24,22 @@ public class AjoutPret {
     public AjoutPret(Connection conn)
     {
         connection = conn;
-        //DateFormat format = new SimpleDateFormat("yyyy--MMMM--dd");
-        //TB_DatePret = new JFormattedTextField(format);
-        //JFormattedTextField dateTextField = new JFormattedTextField(format);
         BTN_Ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.AJOUTPRET(?,?,?,?)}");
-                    //stm.registerOutParameter(1, OracleTypes.CURSOR);
-                    stm.setLong(1, Long.getLong(TB_NumExemplaire.getText()));
-                    stm.setLong(2, Long.getLong(TB_NumAdherent.getText()));
-                    stm.setLong(3, Long.getLong(TB_DatePret.getText()));
-                    stm.setLong(4, Long.getLong(TB_DateRetour.getText()));
+                    // On cast les dates dans le bon format
+                    Date datePret = Date.valueOf(TB_DatePret.getText());
+                    Date dateRetour = Date.valueOf(TB_DateRetour.getText());
+
+                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.AJOUTEREMPRUNT(?,?,?,?)}");
+                    stm.setLong(1, Long.parseLong(TB_NumExemplaire.getText()));
+                    stm.setLong(2, Long.parseLong(TB_NumAdherent.getText()));
+                    stm.setDate(3, datePret);
+                    stm.setDate(4, dateRetour);
+
                     stm.execute(); //execution de la fonction
-                    // Caster le paramètre de retour en ResultSet
-                    rset = (ResultSet) stm.getObject(1);
 
-                    ResultSetMetaData metaData = rset.getMetaData();
-
-                    while (rset.next()) {/* TODO: PUT SOMETHING HERE*/}
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
