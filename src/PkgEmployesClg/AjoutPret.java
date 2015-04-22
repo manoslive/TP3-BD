@@ -1,6 +1,7 @@
 package PkgEmployesClg;
 
 import javax.swing.*;
+import java.sql.Connection;
 
 /**
  * Created by shaun on 2015-04-21.
@@ -12,8 +13,8 @@ public class AjoutPret {
     private JTextField TB_DateRetour;
     private JButton BTN_Ajouter;
     public JPanel panel1;
-    ConnectionOracle connection;
-    public AjoutPret(ConnectionOracle conn)
+    Connection connection;
+    public AjoutPret(Connection conn)
     {
         connection = conn;
     }

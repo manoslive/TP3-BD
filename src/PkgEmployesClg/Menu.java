@@ -3,6 +3,7 @@ package PkgEmployesClg;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 
 /**
@@ -17,15 +18,15 @@ public class Menu {
     private JButton BTN_LivrePlusEmpruntes;
     private JButton button1;
     public JPanel panel1;
-    ConnectionOracle connection;
-    public Menu(ConnectionOracle conn) {
+    Connection connection;
+    public Menu(Connection conn) {
         connection = conn;
         BTN_ActionAdherent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("ActionAdherent");
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.add(new ModAdherent().panel1);
+                frame.add(new ModAdherent(connection).panel1);
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(700,300);
@@ -34,9 +35,9 @@ public class Menu {
         BTN_ConsulterLivres.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("ActionAdherent");
+                JFrame frame = new JFrame("Consulter les livres par genre");
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.add(new ConsulterLivresParGenre().panel1);
+                frame.add(new ConsulterLivresParGenre(connection).panel1);
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(700,300);
@@ -47,9 +48,9 @@ public class Menu {
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        JFrame frame = new JFrame("ActionAdherent");
+                        JFrame frame = new JFrame("Ajouter un prêt");
                         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        frame.add(new AjoutPret().panel1);
+                        frame.add(new AjoutPret(connection).panel1);
                         frame.pack();
                         frame.setVisible(true);
                         frame.setSize(700,300);
@@ -63,9 +64,9 @@ public class Menu {
         BTN_ConsulterLivresPrets.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("ActionAdherent");
+                JFrame frame = new JFrame("Consulter les livres empruntés");
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.add(new ConsulterLivresPrete().panel1);
+                frame.add(new ConsulterLivresPrete(connection).panel1);
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(700,300);
@@ -76,9 +77,9 @@ public class Menu {
         BTN_RechercheLivre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("ActionAdherent");
+                JFrame frame = new JFrame("Recherche d'un livre");
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.add(new RechercheLivre().panel1);
+                frame.add(new RechercheLivre(connection).panel1);
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(700,300);
@@ -87,9 +88,9 @@ public class Menu {
         BTN_LivrePlusEmpruntes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("ActionAdherent");
+                JFrame frame = new JFrame("Les livres les plus empruntés");
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.add(new ListeLivresPlusEmprunte().panel1);
+                frame.add(new ListeLivresPlusEmprunte(connection).panel1);
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(700,300);

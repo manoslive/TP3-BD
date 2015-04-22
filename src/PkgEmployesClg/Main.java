@@ -14,7 +14,7 @@ public class Main{
             public void run() {
                 JFrame frame = new JFrame("Menu");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setContentPane(new Menu(connection).panel1);
+                frame.setContentPane(new Menu(connection.getConnection()).panel1);
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(700,300);

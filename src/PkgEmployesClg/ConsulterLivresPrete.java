@@ -1,6 +1,7 @@
 package PkgEmployesClg;
 
 import javax.swing.*;
+import java.sql.Connection;
 
 /**
  * Created by shaun on 2015-04-21.
@@ -8,8 +9,8 @@ import javax.swing.*;
 public class ConsulterLivresPrete {
     private JTable Table_LivreEmprunte;
     public JPanel panel1;
-    ConnectionOracle connection;
-    public ConsulterLivresPrete(ConnectionOracle conn)
+    Connection connection;
+    public ConsulterLivresPrete(Connection conn)
     {
         connection = conn;
     }
