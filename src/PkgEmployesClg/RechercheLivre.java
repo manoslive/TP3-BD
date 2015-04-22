@@ -11,4 +11,9 @@ public class RechercheLivre {
     private JButton BTN_Recherche;
     private JTable Table_Resultat;
     public JPanel panel1;
+    ConnectionOracle connection;
+    public RechercheLivre(ConnectionOracle conn)
+    {
+        connection = conn;
+    }
 }

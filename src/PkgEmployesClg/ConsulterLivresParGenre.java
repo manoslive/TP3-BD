@@ -10,4 +10,11 @@ public class ConsulterLivresParGenre {
     private JList List_LivreParGenre;
     private JButton BTN_Rechercher;
     public JPanel panel1;
+    private JButton BTN_Suivant;
+    private JButton BTN_Precedent;
+    ConnectionOracle connection;
+    public ConsulterLivresParGenre(ConnectionOracle conn)
+    {
+        connection = conn;
+    }
 }

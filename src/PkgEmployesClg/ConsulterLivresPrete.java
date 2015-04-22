@@ -8,4 +8,9 @@ import javax.swing.*;
 public class ConsulterLivresPrete {
     private JTable Table_LivreEmprunte;
     public JPanel panel1;
+    ConnectionOracle connection;
+    public ConsulterLivresPrete(ConnectionOracle conn)
+    {
+        connection = conn;
+    }
 }

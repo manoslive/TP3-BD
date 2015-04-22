@@ -16,4 +16,9 @@ public class ModAdherent {
     private JButton BTN_Supprimer;
     public JPanel panel1;
     private JFrame frame;
+    ConnectionOracle connection;
+    public ModAdherent(ConnectionOracle conn)
+    {
+        connection = conn;
+    }
 }

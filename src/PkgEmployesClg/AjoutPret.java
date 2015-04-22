@@ -12,4 +12,9 @@ public class AjoutPret {
     private JTextField TB_DateRetour;
     private JButton BTN_Ajouter;
     public JPanel panel1;
+    ConnectionOracle connection;
+    public AjoutPret(ConnectionOracle conn)
+    {
+        connection = conn;
+    }
 }
