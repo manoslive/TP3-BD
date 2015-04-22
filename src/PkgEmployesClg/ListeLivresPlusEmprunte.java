@@ -7,5 +7,5 @@ import javax.swing.*;
  */
 public class ListeLivresPlusEmprunte {
     private JTable Table_Livres;
-    private JPanel panel1;
+    public JPanel panel1;
 }

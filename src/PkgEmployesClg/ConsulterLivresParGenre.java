@@ -9,4 +9,5 @@ public class ConsulterLivresParGenre {
     private JTextField textField1;
     private JList List_LivreParGenre;
     private JButton BTN_Rechercher;
+    public JPanel panel1;
 }

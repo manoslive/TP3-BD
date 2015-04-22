@@ -10,4 +10,5 @@ public class RechercheLivre {
     private JTextField TB_Auteur;
     private JButton BTN_Recherche;
     private JTable Table_Resultat;
+    public JPanel panel1;
 }
