@@ -1,4 +1,5 @@
 package PkgEmployesClg;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,14 +17,14 @@ public class Menu {
     private JButton BTN_LivrePlusEmpruntes;
     private JButton button1;
     public JPanel panel1;
-
-    public Menu() {
-
+    ConnectionOracle connection;
+    public Menu(ConnectionOracle conn) {
+        connection = conn;
         BTN_ActionAdherent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("ActionAdherent");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.add(new ModAdherent().panel1);
                 frame.pack();
                 frame.setVisible(true);
@@ -34,7 +35,7 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("ActionAdherent");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.add(new ConsulterLivresParGenre().panel1);
                 frame.pack();
                 frame.setVisible(true);
@@ -47,7 +48,7 @@ public class Menu {
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         JFrame frame = new JFrame("ActionAdherent");
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                         frame.add(new AjoutPret().panel1);
                         frame.pack();
                         frame.setVisible(true);
@@ -63,7 +64,7 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("ActionAdherent");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.add(new ConsulterLivresPrete().panel1);
                 frame.pack();
                 frame.setVisible(true);
@@ -76,7 +77,7 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("ActionAdherent");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.add(new RechercheLivre().panel1);
                 frame.pack();
                 frame.setVisible(true);
@@ -87,7 +88,7 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("ActionAdherent");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.add(new ListeLivresPlusEmprunte().panel1);
                 frame.pack();
                 frame.setVisible(true);
@@ -96,7 +97,6 @@ public class Menu {
         });
 
     }
-
     public static void main(String[] args) {
 
     }

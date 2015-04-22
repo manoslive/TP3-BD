@@ -1,24 +1,26 @@
 package PkgEmployesClg;
 
-import java.sql.*;
+import oracle.jdbc.pool.*;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 //import oracle.jdbc.pool.*;
 /**
  * Created by shaun on 2015-04-21.
  */
-/*public class ConnectionOracle {
+public class ConnectionOracle {
     private String nomUsager;
     private String motdePasse;
     String url="jdbc:oracle:thin:@205.237.244.251:1521:orcl";
     private Connection conn;
 
-    public void setConnection( String u, String m)
+    public void setConnection( String usager, String motpasse)
     {
-        nomUsager = u;
-        motdePasse =m;
+        nomUsager = usager;
+        motdePasse =motpasse;
     };
 
     public  Connection getConnection()
-
     {
         return conn;
     }
@@ -54,4 +56,4 @@ import java.sql.*;
             conn = null;
         }
     }
-}*/
+}
