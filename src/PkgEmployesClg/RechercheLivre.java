@@ -13,8 +13,7 @@ import java.util.Vector;
  * Created by shaun on 2015-04-21.
  */
 public class RechercheLivre {
-    private JTextField TB_Titre;
-    private JTextField TB_Auteur;
+    private JTextField TB_TitreAuteur;
     private JButton BTN_RechercheTitre;
     private JTable Table_Resultat;
     public JPanel panel1;
@@ -29,7 +28,7 @@ public class RechercheLivre {
                 try {
                     CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERLIVRESPARTITRE(?)}");
                     stm.registerOutParameter(1, OracleTypes.CURSOR);
-                    stm.setString(2, TB_Titre.getText().toUpperCase());
+                    stm.setString(2, TB_TitreAuteur.getText().toUpperCase());
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);
@@ -66,7 +65,7 @@ public class RechercheLivre {
                 try {
                     CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERLIVRESPARAUTEUR(?)}");
                     stm.registerOutParameter(1, OracleTypes.CURSOR);
-                    stm.setString(2, TB_Auteur.getText().toUpperCase());
+                    stm.setString(2, TB_TitreAuteur.getText().toUpperCase());
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);
