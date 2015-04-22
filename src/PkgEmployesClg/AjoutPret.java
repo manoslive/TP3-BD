@@ -30,9 +30,9 @@ public class AjoutPret {
                     CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.AJOUTPRET(?,?,?,?)}");
                     //stm.registerOutParameter(1, OracleTypes.CURSOR);
                     stm.setLong(1, Long.getLong(TB_NumExemplaire.getText()));
-                    stm.setLong(2, Long.getLong(TB_NumExemplaire.getText()));
-                    stm.setLong(3, Long.getLong(TB_NumExemplaire.getText()));
-                    stm.setLong(4, Long.getLong(TB_NumExemplaire.getText()));
+                    stm.setLong(2, Long.getLong(TB_NumAdherent.getText()));
+                    stm.setLong(3, Long.getLong(TB_DatePret.getText()));
+                    stm.setLong(4, Long.getLong(TB_DateRetour.getText()));
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);
