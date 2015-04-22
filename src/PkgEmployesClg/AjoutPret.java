@@ -11,8 +11,6 @@ import java.sql.*;
 public class AjoutPret {
     private JTextField TB_NumExemplaire;
     private JTextField TB_NumAdherent;
-    private JFormattedTextField TB_DatePret;
-    private JFormattedTextField TB_DateRetour;
     private JButton BTN_Ajouter;
     public JPanel panel1;
     Connection connection;
@@ -25,16 +23,16 @@ public class AjoutPret {
             public void actionPerformed(ActionEvent e) {
                 try {
                     // On cast les dates dans le bon format
-                    Date datePret = Date.valueOf(TB_DatePret.getText());
-                    Date dateRetour = Date.valueOf(TB_DateRetour.getText());
+                    //Date datePret = Date.valueOf(TB_DatePret.getText());
+                    //Date dateRetour = Date.valueOf(TB_DateRetour.getText());
 
-                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.AJOUTEREMPRUNT(?,?,?,?)}");
+                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.AJOUTEREMPRUNT(?,?)}");
                     stm.setLong(1, Long.parseLong(TB_NumExemplaire.getText()));
                     stm.setLong(2, Long.parseLong(TB_NumAdherent.getText()));
-                    stm.setDate(3, datePret);
-                    stm.setDate(4, dateRetour);
+                    //stm.setDate(3, datePret);
+                    //stm.setDate(4, dateRetour);
 
-                    stm.execute(); //execution de la fonction
+                    stm.execute();//execution de la fonction
 
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
