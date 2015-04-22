@@ -1,13 +1,9 @@
 package PkgEmployesClg;
 
-import oracle.sql.DATE;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by shaun on 2015-04-21.
