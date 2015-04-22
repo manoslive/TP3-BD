@@ -5,10 +5,7 @@ import oracle.jdbc.OracleTypes;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by shaun on 2015-04-21.
@@ -31,15 +28,17 @@ public class ModAdherent {
     ResultSet rset;
     public ModAdherent(Connection conn) {
         String sql = "{ ? = call BIBLIOTHEQUE.AFFICHERTOUSLESADHERENTS()}";
+        String sql2 = "select * from adherents";
         connection = conn;
         //maConnection = conn.getConnection();
         try {
 
-            CallableStatement stm = connection.prepareCall(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            stm.registerOutParameter(1, OracleTypes.CURSOR);
-            stm.execute(); //execution de la fonction
+            Statement stm = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            //stm.registerOutParameter(1, OracleTypes.CURSOR);
+            //stm.execute; //execution de la fonction
             // Caster le paramètre de retour en ResultSet
-            rset = (ResultSet) stm.getObject(1);
+            //rset = (ResultSet) stm.getObject(1);
+            rset = stm.executeQuery(sql2);
             rset.next();
             AfficherAdherent();
         } catch (SQLException ex) {
