@@ -29,7 +29,7 @@ public class RechercheLivre {
                 try {
                     CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERLIVRESPARTITRE(?)}");
                     stm.registerOutParameter(1, OracleTypes.CURSOR);
-                    stm.setString(2, TB_Titre.getText());
+                    stm.setString(2, TB_Titre.getText().toUpperCase());
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);
@@ -66,7 +66,7 @@ public class RechercheLivre {
                 try {
                     CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERLIVRESPARAUTEUR(?)}");
                     stm.registerOutParameter(1, OracleTypes.CURSOR);
-                    stm.setString(2, TB_Auteur.getText());
+                    stm.setString(2, TB_Auteur.getText().toUpperCase());
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);
