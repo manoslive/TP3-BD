@@ -33,7 +33,6 @@ public class ConsulterLivresParGenre {
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);
-
                     ResultSetMetaData metaData = rset.getMetaData();
 
                     // names of columns
