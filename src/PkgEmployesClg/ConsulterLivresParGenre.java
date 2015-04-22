@@ -29,7 +29,7 @@ public class ConsulterLivresParGenre {
                 try {
                     CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERLISTELIVRES(?)}");
                     stm.registerOutParameter(1, OracleTypes.CURSOR);
-                    stm.setString(2, TB_Genre.getText());
+                    stm.setString(2, TB_Genre.getText().toUpperCase());
                     stm.execute(); //execution de la fonction
                     // Caster le paramètre de retour en ResultSet
                     rset = (ResultSet) stm.getObject(1);

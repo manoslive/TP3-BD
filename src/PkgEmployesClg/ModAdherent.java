@@ -1,7 +1,5 @@
 package PkgEmployesClg;
 
-import oracle.jdbc.OracleTypes;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,9 +26,8 @@ public class ModAdherent {
     ResultSet rset;
     public ModAdherent(Connection conn) {
         String sql = "{ ? = call BIBLIOTHEQUE.AFFICHERTOUSLESADHERENTS()}";
-        String sql2 = "select * from adherents";
+        String sql2 = "select * from adherents order by NumAdherent";
         connection = conn;
-        //maConnection = conn.getConnection();
         try {
 
             Statement stm = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
