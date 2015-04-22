@@ -29,20 +29,18 @@ public class ModAdherent {
     Connection maConnection;
     Connection connection;
     ResultSet rest;
-    public ModAdherent(Connection conn)
-    {
+    public ModAdherent(Connection conn) {
         connection = conn;
         //maConnection = conn.getConnection();
-        try{
-            CallableStatement stm =connection.prepareCall("{ ? = call Adherents.AFFICHERTOUSLESADHERENTS()}");
+        try {
+            CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERTOUSLESADHERENTS()}",ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             stm.registerOutParameter(1, OracleTypes.CURSOR);
             stm.execute(); //execution de la fonction
             // Caster le paramètre de retour en ResultSet
             rest = (ResultSet) stm.getObject(1);
+            rest.next();
             AfficherAdherent();
-        }
-        catch(SQLException ex)
-        {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
@@ -50,11 +48,9 @@ public class ModAdherent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(rest.previous())
+                    if (rest.previous())
                         AfficherAdherent();// affichage des résultat
-                }
-                catch (SQLException ex)
-                {
+                } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
             }
@@ -63,11 +59,9 @@ public class ModAdherent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(rest.next())
+                    if (rest.next())
                         AfficherAdherent();// affichage des résultat
-                }
-                catch (SQLException ex)
-                {
+                } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
             }
@@ -75,15 +69,46 @@ public class ModAdherent {
         BTN_Ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    CallableStatement stm =connection.prepareCall("{call Adherents.AJOUTERADHERENT(?,?,?,?)}");
+                try {
+                    TB_NumAderent.setText("");
+                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.AJOUTERADHERENT(?,?,?,?)}");
                     stm.setString(1, TB_Nom.getText());
                     stm.setString(2, TB_Prenom.getText());
                     stm.setString(3, TB_Adresse.getText());
                     stm.setString(4, TB_NumTel.getText());
                     stm.execute(); //execution de la fonction
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
                 }
-                catch(SQLException ex){
+            }
+        });
+
+        BTN_Modifier.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.MODIFIERADHERENT(?,?,?,?,?)}");
+                    stm.setString(1, TB_NumAderent.getText());
+                    stm.setString(2, TB_Nom.getText());
+                    stm.setString(3, TB_Prenom.getText());
+                    stm.setString(4, TB_Adresse.getText());
+                    stm.setString(5, TB_NumTel.getText());
+                    stm.execute(); //execution de la fonction7
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
+        BTN_Supprimer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    CallableStatement stm = connection.prepareCall("{call BIBLIOTHEQUE.SUPPRIMERADHERENT(?)}");
+                    stm.setString(1, TB_NumAderent.getText());
+                    stm.execute(); //execution de la fonction
+                    rest.beforeFirst();;
+                    AfficherAdherent();
+                } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
             }
