@@ -33,7 +33,7 @@ public class ModAdherent {
         connection = conn;
         //maConnection = conn.getConnection();
         try {
-            CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERTOUSLESADHERENTS()}",ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            CallableStatement stm = connection.prepareCall("{ ? = call BIBLIOTHEQUE.AFFICHERTOUSLESADHERENTS()}",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             stm.registerOutParameter(1, OracleTypes.CURSOR);
             stm.execute(); //execution de la fonction
             // Caster le paramètre de retour en ResultSet
