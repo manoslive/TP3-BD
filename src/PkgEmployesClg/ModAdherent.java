@@ -38,7 +38,7 @@ public class ModAdherent {
             //stm.execute; //execution de la fonction
             // Caster le paramètre de retour en ResultSet
             //rset = (ResultSet) stm.getObject(1);
-            rset = stm.executeQuery(sql2);
+            rset = stm.executeQuery(sql);
             rset.next();
             AfficherAdherent();
         } catch (SQLException ex) {
