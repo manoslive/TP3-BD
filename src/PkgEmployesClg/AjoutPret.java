@@ -39,7 +39,7 @@ public class AjoutPret {
 
                     ResultSetMetaData metaData = rset.getMetaData();
 
-                    while (rset.next()) {}
+                    while (rset.next()) {/* TODO: PUT SOMETHING HERE*/}
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
