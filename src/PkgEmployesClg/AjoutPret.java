@@ -11,8 +11,8 @@ import java.sql.*;
 public class AjoutPret {
     private JTextField TB_NumExemplaire;
     private JTextField TB_NumAdherent;
-    private JTextField TB_DatePret;
-    private JTextField TB_DateRetour;
+    private JFormattedTextField TB_DatePret;
+    private JFormattedTextField TB_DateRetour;
     private JButton BTN_Ajouter;
     public JPanel panel1;
     Connection connection;
@@ -20,6 +20,9 @@ public class AjoutPret {
     public AjoutPret(Connection conn)
     {
         connection = conn;
+        //DateFormat format = new SimpleDateFormat("yyyy--MMMM--dd");
+        //TB_DatePret = new JFormattedTextField(format);
+        //JFormattedTextField dateTextField = new JFormattedTextField(format);
         BTN_Ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
